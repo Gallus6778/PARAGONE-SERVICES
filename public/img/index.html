@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="menu.css">
+
+    <title>ETS PARAGONE</title>
+
+<body>
+
+<nav>
+    <div class="hamburger">
+        <div class="line"></div>
+        <div class="line"></div>
+        <div class="line"></div>
+    </div>
+    <ul class="nav-links">
+        <li><a href="#">About</a></li>
+        <li><a href="#">contact</a></li>
+        <li><a href="#">Projects</a></li>
+    </ul>
+</nav>
+
+<section class="landing">
+
+    <img src="circle.png" alt="dots">
+    <img src="https://img.icons8.com/fluent/96/000000/filled-circle.png"/>
+    <h1>Dots</h1>
+
+</section>
+
+<!-- jQuery -->
+
+<script>
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+    const links = document.querySelectorAll('.nav-links li');
+
+    hamburger.addEventListener('click',() => {
+        navLinks.classList.toogle('open');
+    });
+</script>
+
+</body>
+
+<html>

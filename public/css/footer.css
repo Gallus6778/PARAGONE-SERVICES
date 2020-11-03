@@ -1,0 +1,30 @@
+.social-icon {
+    /*color: #fff;*/
+    width: 20px;
+    height: 20px;
+}
+
+.page-footer{
+    color: #fff;
+}
+li a{
+    color: #fff;
+}
+li a:hover{
+    color: #B9BFC8;
+    font-weight: bold;
+    text-decoration: none;
+}
+#label2{
+    /*color: #fff;*/
+    color: #CFD6E0;
+}
+.label1{
+    color: #fff;
+}
+#valid{
+    font-size: 1.03em
+}
+.bg-footer{
+    background: #2F3031;
+}
