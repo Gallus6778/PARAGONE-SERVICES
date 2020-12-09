@@ -1,70 +1,224 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{{ asset('css/menu.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/caroussel.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/footer.css') }}">
+@extends('layouts.template')
 
-    <link rel="stylesheet" href="{{ asset('font/CreteRound-Regular.ttf') }}">
-    <link rel="stylesheet" href="{{ asset('font/CreteRound-Italic.ttf') }}">
+@section('style')
+    <!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
+<!-- Google Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+<!-- Bootstrap core CSS -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
+<!-- Material Design Bootstrap -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
 
-    <link rel="stylesheet" href="{{ asset('css/all.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/brands.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/solid.css') }}">
+<style>
+    .carousel-item{
+        background-color: #fff;
+    }
+    .carousel-inner{
+        height: 480px;
+    }
+    .col-md-4{
+        margin-top: 10px;
+    }
+    /* ol li{
+        width: 20px;
+        height: 20px;
+        background-color: aqua;
+    } */
 
-{{--    <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">--}}
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/fontawesome.min.css" integrity="sha512-kJ30H6g4NGhWopgdseRb8wTsyllFUYIx3hiUwmGAkgA9B/JbzUBDQVr2VVlWGde6sdBVOG7oU8AL35ORDuMm8g==" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    @media only screen and (max-width: 600px) and (min-width: 400px) {
+        .carousel-item {
+    background-color: red;
+  }
+}
+</style>
+@endsection
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+@section('content')
+    {{--carroussel--}}
+    @include('includes.carroussel')
 
-    {{-- MDBootstrap   --}}
-{{--    <!-- Font Awesome -->--}}
-    <link href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" rel="stylesheet"/>
+<!--Carousel Wrapper-->
+<div id="multi-item-example" class="carousel slide carousel-multi-item" data-ride="carousel">
 
-{{--    <!-- Google Fonts -->--}}
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet"/>
+    <!--Controls-->
+    <div class="controls-top">
+      <a class="btn-floating" href="#multi-item-example" data-slide="prev"><i class="fas fa-chevron-left"></i></a>
+      <a class="btn-floating" href="#multi-item-example" data-slide="next"><i
+          class="fas fa-chevron-right"></i></a>
+    </div>
+    <!--/.Controls-->
 
-{{--    <!-- MDB -->--}}
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0/mdb.min.css" rel="stylesheet"/>
+    <!--Indicators-->
+    <ol class="carousel-indicators">
+      <li data-target="#multi-item-example" data-slide-to="0" class="active"></li>
+      <li data-target="#multi-item-example" data-slide-to="1"></li>
+      <li data-target="#multi-item-example" data-slide-to="2"></li>
+    </ol>
+    <!--/.Indicators-->
 
-    <title>ETS PARAGONE</title>
+    <!--Slides-->
+    <div class="carousel-inner" role="listbox">
 
-{{--Icon--}}
-    <link href="{{ asset('img/logo.jpeg') }}" rel="icon">
-    <style>
+      <!--First slide-->
+      <div class="carousel-item active">
+          <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-4 col-sm-6">
+                    <div class="card mb-2">
+                      <img class="card-img-top"
+                        src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(34).jpg"
+                        alt="Card image cap">
+                      <div class="card-body">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                          card's content.</p>
+                        <a class="btn btn-primary">Button</a>
+                      </div>
+                    </div>
+                  </div>
 
-    </style>
-<body>
-{{--Menu--}}
-@include('includes.main-menu')
+                  <div class="col-md-4 col-sm-6">
+                    <div class="card mb-2">
+                      <img class="card-img-top"
+                        src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(18).jpg"
+                        alt="Card image cap">
+                      <div class="card-body">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                          card's content.</p>
+                        <a class="btn btn-primary">Button</a>
+                      </div>
+                    </div>
+                  </div>
 
-{{--carroussel--}}
-@include('includes.carroussel')
+                  <div class="col-md-4 col-sm-hidden">
+                    <div class="card mb-2">
+                      <img class="card-img-top"
+                        src="https://mdbootstrap.com/img/Photos/Horizontal/Nature/4-col/img%20(35).jpg"
+                        alt="Card image cap">
+                      <div class="card-body">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                          card's content.</p>
+                        <a class="btn btn-primary">Button</a>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!--/.First slide-->
 
+      <!--Second slide-->
+      <div class="carousel-item">
+          <div class="container-fluid">
+              <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-2">
+                      <img class="card-img-top"
+                        src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(60).jpg" alt="Card image cap">
+                      <div class="card-body">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                          card's content.</p>
+                        <a class="btn btn-primary">Button</a>
+                      </div>
+                    </div>
+                  </div>
 
-<section class="landing">
-    <img src="{{ asset('img/circle.png') }}" alt="dots">
-    <img src="https://img.icons8.com/fluent/96/000000/filled-circle.png"/>
-    <h1>Dots</h1>
-</section>
+                  <div class="col-md-4">
+                    <div class="card mb-2">
+                      <img class="card-img-top"
+                        src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(47).jpg" alt="Card image cap">
+                      <div class="card-body">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                          card's content.</p>
+                        <a class="btn btn-primary">Button</a>
+                      </div>
+                    </div>
+                  </div>
 
-{{--Footer--}}
-@include('includes.footer')
+                  <div class="col-md-4">
+                    <div class="card mb-2">
+                      <img class="card-img-top"
+                        src="https://mdbootstrap.com/img/Photos/Horizontal/City/4-col/img%20(48).jpg" alt="Card image cap">
+                      <div class="card-body">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                          card's content.</p>
+                        <a class="btn btn-primary">Button</a>
+                      </div>
+                    </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+      <!--/.Second slide-->
 
-{{--<!-- jQuery -->--}}
+      <!--Third slide-->
+      <div class="carousel-item">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card mb-2">
+                      <img class="card-img-top"
+                        src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(53).jpg" alt="Card image cap">
+                      <div class="card-body">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                          card's content.</p>
+                        <a class="btn btn-primary">Button</a>
+                      </div>
+                    </div>
+                  </div>
 
-<script src="{{ asset('js/app.js') }}"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+                  <div class="col-md-4">
+                    <div class="card mb-2">
+                      <img class="card-img-top"
+                        src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(45).jpg" alt="Card image cap">
+                      <div class="card-body">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                          card's content.</p>
+                        <a class="btn btn-primary">Button</a>
+                      </div>
+                    </div>
+                  </div>
 
-{{--<!-- MDB -->--}}
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/1.0.0/mdb.min.js"></script>
+                  <div class="col-md-4">
+                    <div class="card mb-2">
+                      <img class="card-img-top"
+                        src="https://mdbootstrap.com/img/Photos/Horizontal/Food/4-col/img%20(51).jpg" alt="Card image cap">
+                      <div class="card-body">
+                        <h4 class="card-title">Card title</h4>
+                        <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                          card's content.</p>
+                        <a class="btn btn-primary">Button</a>
+                      </div>
+                    </div>
+                  </div>
+            </div>
+        </div>
+      </div>
+      <!--/.Third slide-->
 
-</body>
+    </div>
+    <!--/.Slides-->
 
-<html>
+  </div>
+  <!--/.Carousel Wrapper-->
+
+@endsection
+
+@section('script')
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+@endsection
